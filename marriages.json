@@ -166,5 +166,89 @@
     "money": 100,
     "event-type": "vivah",
     "completed": false
+  },
+   {
+    "date": "19/04/2026",
+    "organiser": ["tha madan singh panwar", "tha surendra singh panwar"],
+    "village": "ren",
+    "place": "ren, ratlam",
+    "time": "time nahi diya",
+    "kuwasi": true,
+    "phone": "9755628430",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "05/05/2026",
+    "organiser": ["swa. tha fulsingh sisodiya", "tha tufan singh sisodiya", "tha shivraj singh sisodiya"],
+    "village": "manasa, badnawar, dhar",
+    "place": "rajput dharamshala, rangarakhedi, nagda",
+    "time": "4pm - late-night",
+    "kuwasi": false,
+    "phone": "9630418175",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "23/04/2026",
+    "organiser": ["tha suresh singh chawda", "ku prem singh chawda", "vikram singh chawda"],
+    "village": "chamundakhedi, badnawar, dhar",
+    "place": "chamundakhedi",
+    "time": "9am - 1pm",
+    "kuwasi": false,
+    "phone": "9977335175",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "19/04/2026",
+    "organiser": ["chatar singh kamdar", "swa. shree madurlalji kamdar"],
+    "village": "tisganv, dhar",
+    "place": "tisganv",
+    "time": "5pm - late-night",
+    "kuwasi": false,
+    "phone": "8223941139",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "26/04/2026",
+    "organiser": ["tha sa. sajjansingh panwar", "tha sa. jagdev singh panwar", "tha sa. antar singh panwar"],
+    "village": "tamalpur",
+    "place": "lotus resort, bangred",
+    "time": "8am",
+    "kuwasi": false,
+    "phone": "9893739756",
+    "money": 100,
+    "event-type": "tilak",
+    "completed": false
+  },
+   {
+    "date": "20/04/2026",
+    "organiser": ["suresh prajapat", "kishore prajapat", "sanjay prajapat", "vinod prajapat"],
+    "village": "semliya, badnawar, dhar",
+    "place": "semliya",
+    "time": "6pm - late-night",
+    "kuwasi": false,
+    "phone": "9977616282",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "25/04/2026",
+    "organiser": ["patel chatarsingh chouhan", "patel krishna singh chouhan"],
+    "village": "nayakkheda, badnawar, dhar",
+    "place": "nayakheda",
+    "time": "10am - 1pm",
+    "kuwasi": false,
+    "phone": "9926700202",
+    "money": 100,
+    "event-type": "mundan sanskar",
+    "completed": false
   }
 ]
