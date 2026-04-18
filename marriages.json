@@ -1,0 +1,50 @@
+[
+  {
+    "date": "29/09/2025",
+    "organiser": "Jasprit Singh",
+    "village": "Nagda",
+    "place": "Dhar Garden",
+    "time": "2pm - 8pm",
+    "kuwasi": true
+  },
+  {
+    "date": "29/09/2025",
+    "organiser": "Ramesh Patel",
+    "village": "Bhopal",
+    "place": "Royal Banquet Hall",
+    "time": "11am - 4pm",
+    "kuwasi": false
+  },
+  {
+    "date": "29/09/2025",
+    "organiser": "Suresh Sharma",
+    "village": "Indore",
+    "place": "Shree Mangal Bhavan",
+    "time": "6pm - 11pm",
+    "kuwasi": true
+  },
+  {
+    "date": "30/09/2025",
+    "organiser": "Vikram Yadav",
+    "village": "Ujjain",
+    "place": "Narmada Garden",
+    "time": "12pm - 6pm",
+    "kuwasi": false
+  },
+  {
+    "date": "30/09/2025",
+    "organiser": "Deepak Verma",
+    "village": "Dewas",
+    "place": "Shiv Palace",
+    "time": "7pm - 11pm",
+    "kuwasi": true
+  },
+  {
+    "date": "01/10/2025",
+    "organiser": "Anil Gupta",
+    "village": "Sehore",
+    "place": "Green Valley Resort",
+    "time": "10am - 3pm",
+    "kuwasi": false
+  }
+]
