@@ -282,6 +282,20 @@
     margin-top: 12px;
   }
 
+  .kuwasi-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(139,26,26,0.1), rgba(201,146,42,0.15));
+    border: 1px solid rgba(139,26,26,0.3);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    color: var(--deep-red);
+    font-weight: 600;
+    margin-top: 8px;
+    margin-left: 6px;
+    letter-spacing: 0.3px;
+  }
+
   .card::after {
     content: '';
     position: absolute;
@@ -292,12 +306,7 @@
     opacity: 0.6;
   }
 
-  .card:nth-child(1) { animation-delay: 0.05s; }
-  .card:nth-child(2) { animation-delay: 0.1s; }
-  .card:nth-child(3) { animation-delay: 0.15s; }
-  .card:nth-child(4) { animation-delay: 0.2s; }
-  .card:nth-child(5) { animation-delay: 0.25s; }
-  .card:nth-child(6) { animation-delay: 0.3s; }
+  /* animation delays applied via inline style in JS */
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
@@ -395,7 +404,7 @@
     }
 
     const cards = results.map((r, i) => `
-      <div class="card">
+      <div class="card" style="animation-delay:${(i * 0.07).toFixed(2)}s">
         <div class="card-number">${String(i + 1).padStart(2, '0')}</div>
         <div class="card-organiser">${r.organiser}</div>
         <div class="card-detail">
@@ -413,7 +422,10 @@
           <span class="label">Date</span>
           <span class="value">${r.date}</span>
         </div>
-        <div class="card-time-badge">⏰ ${r.time}</div>
+        <div>
+          <span class="card-time-badge">⏰ ${r.time}</span>
+          ${r.kuwasi === true ? '<span class="kuwasi-badge">🪔 Kuwasi</span>' : ''}
+        </div>
       </div>
     `).join('');
 
