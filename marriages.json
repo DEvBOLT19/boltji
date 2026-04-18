@@ -82,5 +82,89 @@
     "money": 100,
     "event-type": "vivah",
     "completed": false
+  },
+   {
+    "date": "20/04/2026",
+    "organiser": ["tha darbar singh dodiya", "tha dashrat singh dodiya"],
+    "village": "rangara khedi",
+    "place": "rangara khedi , badnawar, dhar",
+    "time": "9am - 1pm",
+    "kuwasi": false,
+    "phone": "9753324713",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "19/04/2026",
+    "organiser": ["tha thakar sajjan singh panwar", "ku sangram singh panwar", "ku lakhan singh panwar"],
+    "village": "khandigara",
+    "place": "dharamshala, khandigara",
+    "time": "9am - 1pm",
+    "kuwasi": false,
+    "phone": "7566563587",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "29/04/2026",
+    "organiser": ["tha hem singh rathore"],
+    "village": "bhedawad kr-03",
+    "place": "bhedawad kr-03",
+    "time": "8am - 12pm",
+    "kuwasi": true,
+    "phone": "9977006531",
+    "money": 500,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "29/04/2026",
+    "organiser": ["tha jaydeep singh tanwar"],
+    "village": "khiledi",
+    "place": "lotus resort bangred",
+    "time": "5pm - late-night",
+    "kuwasi": false,
+    "phone": "8305292988",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "26/04/2026",
+    "organiser": ["tha dileep singh tanwar", "tha mehrban singh tanwar"],
+    "village": "mundla parwal, mahidpur, ujjain",
+    "place": "mundla parwal",
+    "time": "5pm - late-night",
+    "kuwasi": true,
+    "phone": "9977257421",
+    "money": 1100,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "25/04/2026",
+    "organiser": ["tha lakhan singh bhati", "tha gopal singh bhati", "ku malkhan singh bhati"],
+    "village": "jalodiya par, depalpur, indore",
+    "place": "rajput dharamshala, jalodiya par",
+    "time": "9am - 1pm",
+    "kuwasi": true,
+    "phone": "8103508329",
+    "money": 500,
+    "event-type": "vivah",
+    "completed": false
+  },
+   {
+    "date": "25/04/2026",
+    "organiser": ["tha prahalad singh tanwar", "ku rajendra singh tanwar"],
+    "village": "sanavda, badnawar, dhar",
+    "place": "sanavda",
+    "time": "9am - 1pm",
+    "kuwasi": false,
+    "phone": "9981708774",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
   }
 ]
