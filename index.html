@@ -16,6 +16,8 @@
     --text-mid: #5C3317;
     --card-bg: #FFFAF2;
     --shadow: rgba(139,26,26,0.12);
+    --green: #1e8449;
+    --red: #c0392b;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,59 +33,91 @@
   body::before {
     content: '';
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
     background:
       radial-gradient(ellipse at 10% 20%, rgba(232,101,10,0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 80%, rgba(201,146,42,0.08) 0%, transparent 50%);
+      radial-gradient(ellipse at 90% 80%, rgba(201,146,42,0.08) 0%, transparent 55%);
     pointer-events: none;
     z-index: 0;
   }
 
+  /* ── HEADER ── */
   header {
     text-align: center;
-    padding: 52px 20px 36px;
+    padding: 48px 20px 30px;
     position: relative;
     z-index: 1;
   }
 
   .mandala-line {
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 10px;
     color: var(--gold);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     opacity: 0.7;
   }
 
   header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     color: var(--deep-red);
     line-height: 1.15;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
-  header h1 span {
-    color: var(--saffron);
-    font-style: italic;
-  }
+  header h1 span { color: var(--saffron); font-style: italic; }
 
   header p {
     color: var(--text-mid);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 300;
-    letter-spacing: 0.5px;
   }
 
   .divider {
     width: 120px;
     height: 2px;
     background: linear-gradient(to right, transparent, var(--gold), transparent);
-    margin: 16px auto;
+    margin: 14px auto;
   }
 
+  /* ── NAV BUTTONS ── */
+  .nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 20px 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav-btn {
+    padding: 10px 22px;
+    border-radius: 30px;
+    border: 1.5px solid rgba(201,146,42,0.4);
+    background: var(--card-bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.18s;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+
+  .nav-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+
+  .nav-btn.active {
+    background: linear-gradient(135deg, var(--saffron), var(--deep-red));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(139,26,26,0.25);
+  }
+
+  /* ── SEARCH BOX ── */
   .search-section {
     max-width: 480px;
-    margin: 0 auto 40px;
+    margin: 0 auto 36px;
     padding: 0 20px;
     position: relative;
     z-index: 1;
@@ -93,7 +127,7 @@
     background: var(--card-bg);
     border: 1.5px solid rgba(201,146,42,0.35);
     border-radius: 16px;
-    padding: 28px 30px;
+    padding: 26px 28px;
     box-shadow: 0 8px 32px var(--shadow);
     text-align: center;
   }
@@ -101,20 +135,20 @@
   .search-box label {
     display: block;
     font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--deep-red);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .date-row {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
   }
 
   input[type="date"] {
-    padding: 12px 18px;
+    padding: 11px 16px;
     border: 1.5px solid rgba(232,101,10,0.4);
     border-radius: 10px;
     font-family: 'DM Sans', sans-serif;
@@ -125,7 +159,7 @@
     transition: border 0.2s, box-shadow 0.2s;
     cursor: pointer;
     flex: 1;
-    min-width: 160px;
+    min-width: 155px;
   }
 
   input[type="date"]:focus {
@@ -134,30 +168,26 @@
   }
 
   .search-btn {
-    padding: 12px 28px;
+    padding: 11px 24px;
     background: linear-gradient(135deg, var(--saffron), var(--deep-red));
     color: white;
     border: none;
     border-radius: 10px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 500;
     cursor: pointer;
-    letter-spacing: 0.5px;
     transition: transform 0.15s, box-shadow 0.2s;
     box-shadow: 0 4px 14px rgba(139,26,26,0.25);
     white-space: nowrap;
   }
 
-  .search-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139,26,26,0.35);
-  }
-
+  .search-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,26,26,0.35); }
   .search-btn:active { transform: translateY(0); }
 
+  /* ── RESULTS ── */
   .results-section {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 20px 60px;
     position: relative;
@@ -166,13 +196,13 @@
 
   .results-header {
     text-align: center;
-    margin-bottom: 28px;
-    animation: fadeUp 0.4s ease;
+    margin-bottom: 24px;
+    animation: fadeUp 0.35s ease;
   }
 
   .results-header h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--deep-red);
   }
 
@@ -180,43 +210,44 @@
     display: inline-block;
     background: var(--saffron);
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 500;
-    padding: 3px 12px;
+    padding: 3px 11px;
     border-radius: 20px;
-    margin-left: 10px;
+    margin-left: 8px;
     vertical-align: middle;
     font-family: 'DM Sans', sans-serif;
   }
 
   .no-results {
     text-align: center;
-    padding: 60px 20px;
-    animation: fadeUp 0.4s ease;
+    padding: 56px 20px;
+    animation: fadeUp 0.35s ease;
   }
 
-  .no-results .icon { font-size: 3rem; margin-bottom: 12px; }
+  .no-results .icon { font-size: 2.8rem; margin-bottom: 10px; }
 
   .no-results h3 {
     font-family: 'Playfair Display', serif;
     color: var(--text-mid);
-    font-size: 1.3rem;
-    margin-bottom: 6px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
   }
 
-  .no-results p { color: var(--text-mid); font-size: 0.9rem; opacity: 0.7; }
+  .no-results p { color: var(--text-mid); font-size: 0.88rem; opacity: 0.65; }
 
+  /* ── CARDS ── */
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 18px;
   }
 
   .card {
     background: var(--card-bg);
     border: 1.5px solid rgba(201,146,42,0.25);
     border-radius: 16px;
-    padding: 24px;
+    padding: 22px;
     box-shadow: 0 4px 20px var(--shadow);
     position: relative;
     overflow: hidden;
@@ -226,74 +257,7 @@
 
   .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(139,26,26,0.18);
-  }
-
-  .card-number {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--gold);
-    opacity: 0.3;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .card-organiser {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    color: var(--deep-red);
-    margin-bottom: 14px;
-    padding-right: 36px;
-  }
-
-  .card-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 9px;
-    font-size: 0.88rem;
-  }
-
-  .card-detail .icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-
-  .card-detail .label {
-    color: var(--text-mid);
-    font-weight: 500;
-    min-width: 58px;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-  }
-
-  .card-detail .value { color: var(--text-dark); }
-
-  .card-time-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(232,101,10,0.12), rgba(201,146,42,0.12));
-    border: 1px solid rgba(232,101,10,0.25);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.82rem;
-    color: var(--saffron);
-    font-weight: 500;
-    margin-top: 12px;
-  }
-
-  .kuwasi-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(139,26,26,0.1), rgba(201,146,42,0.15));
-    border: 1px solid rgba(139,26,26,0.3);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.82rem;
-    color: var(--deep-red);
-    font-weight: 600;
-    margin-top: 8px;
-    margin-left: 6px;
-    letter-spacing: 0.3px;
+    box-shadow: 0 10px 28px rgba(139,26,26,0.17);
   }
 
   .card::after {
@@ -306,41 +270,310 @@
     opacity: 0.6;
   }
 
-  /* animation delays applied via inline style in JS */
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
+  .card-number {
+    position: absolute;
+    top: 13px; right: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--gold);
+    opacity: 0.25;
+    font-weight: 700;
+    line-height: 1;
   }
 
+  /* Organiser */
+  .card-organiser {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.18rem;
+    color: var(--deep-red);
+    margin-bottom: 4px;
+    padding-right: 36px;
+    line-height: 1.3;
+  }
+
+  /* Phone below name */
+  .card-phone {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .card-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.86rem;
+  }
+
+  .card-detail .icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 1px; }
+
+  .card-detail .label {
+    color: var(--text-mid);
+    font-weight: 500;
+    min-width: 54px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .card-detail .value { color: var(--text-dark); }
+
+  /* Bottom badges row */
+  .card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 13px;
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .badge-time {
+    background: linear-gradient(135deg, rgba(232,101,10,0.1), rgba(201,146,42,0.12));
+    border: 1px solid rgba(232,101,10,0.25);
+    color: var(--saffron);
+  }
+
+  .badge-kuwasi {
+    background: rgba(139,26,26,0.08);
+    border: 1px solid rgba(139,26,26,0.25);
+    color: var(--deep-red);
+  }
+
+  .badge-money {
+    background: rgba(201,146,42,0.1);
+    border: 1px solid rgba(201,146,42,0.3);
+    color: #7a5800;
+  }
+
+  .badge-event {
+    background: rgba(52,73,94,0.07);
+    border: 1px solid rgba(52,73,94,0.2);
+    color: #2c3e50;
+    text-transform: capitalize;
+  }
+
+  .badge-completed {
+    background: rgba(30,132,73,0.1);
+    border: 1px solid rgba(30,132,73,0.3);
+    color: var(--green);
+  }
+
+  .badge-pending {
+    background: rgba(192,57,43,0.08);
+    border: 1px solid rgba(192,57,43,0.25);
+    color: var(--red);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── FOOTER ── */
   footer {
     text-align: center;
-    padding: 20px;
+    padding: 18px;
     color: var(--text-mid);
-    font-size: 0.8rem;
-    opacity: 0.5;
+    font-size: 0.78rem;
+    opacity: 0.45;
     position: relative;
     z-index: 1;
   }
 
+  /* ── LOCK SCREEN ── */
+  #lockScreen {
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lockScreen::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(232,101,10,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(201,146,42,0.09) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .lock-card {
+    background: var(--card-bg);
+    border: 1.5px solid rgba(201,146,42,0.35);
+    border-radius: 20px;
+    padding: 36px 30px 26px;
+    box-shadow: 0 12px 48px var(--shadow);
+    text-align: center;
+    width: 316px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lock-icon { font-size: 2.3rem; margin-bottom: 10px; display: block; }
+
+  .lock-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    color: var(--deep-red);
+    margin-bottom: 3px;
+  }
+
+  .lock-sub {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    margin-bottom: 22px;
+    opacity: 0.7;
+  }
+
+  .pin-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .pin-dot {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,146,42,0.5);
+    background: transparent;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+
+  .pin-dot.filled { background: var(--saffron); border-color: var(--saffron); transform: scale(1.15); }
+  .pin-dot.error  { background: var(--red); border-color: var(--red); }
+
+  .numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+
+  .np-btn {
+    height: 54px;
+    border: 1.5px solid rgba(201,146,42,0.3);
+    border-radius: 12px;
+    background: var(--ivory);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background 0.1s, transform 0.08s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .np-btn:hover { background: rgba(232,101,10,0.08); border-color: rgba(232,101,10,0.4); }
+  .np-btn:active { transform: scale(0.92); background: rgba(232,101,10,0.15); }
+  .np-btn.del { font-size: 1rem; color: var(--text-mid); }
+  .np-btn.zero { grid-column: 2; }
+
+  .lock-error {
+    margin-top: 13px;
+    font-size: 0.8rem;
+    color: var(--red);
+    font-weight: 500;
+    min-height: 17px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .lock-error.show { opacity: 1; }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+
+  .shake { animation: shake 0.38s ease; }
+
+  @keyframes unlockFade {
+    to { opacity: 0; transform: scale(1.03); pointer-events: none; }
+  }
+
+  .unlocking { animation: unlockFade 0.38s ease forwards; }
+
+  /* ── RESPONSIVE ── */
   @media (max-width: 480px) {
-    header { padding: 36px 16px 24px; }
-    .search-box { padding: 22px 18px; }
+    header { padding: 34px 16px 22px; }
+    .search-box { padding: 20px 16px; }
     .date-row { flex-direction: column; }
     input[type="date"], .search-btn { width: 100%; }
+    .lock-card { width: 290px; padding: 28px 22px 22px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ── LOCK SCREEN ── -->
+<div id="lockScreen">
+  <div class="lock-card">
+    <span class="lock-icon">🔐</span>
+    <div class="lock-title">Vivah Suchna</div>
+    <div class="lock-sub">Enter PIN to continue</div>
+    <div class="pin-dots">
+      <div class="pin-dot" id="d0"></div>
+      <div class="pin-dot" id="d1"></div>
+      <div class="pin-dot" id="d2"></div>
+      <div class="pin-dot" id="d3"></div>
+      <div class="pin-dot" id="d4"></div>
+    </div>
+    <div class="numpad">
+      <button class="np-btn" onclick="pinPress('1')">1</button>
+      <button class="np-btn" onclick="pinPress('2')">2</button>
+      <button class="np-btn" onclick="pinPress('3')">3</button>
+      <button class="np-btn" onclick="pinPress('4')">4</button>
+      <button class="np-btn" onclick="pinPress('5')">5</button>
+      <button class="np-btn" onclick="pinPress('6')">6</button>
+      <button class="np-btn" onclick="pinPress('7')">7</button>
+      <button class="np-btn" onclick="pinPress('8')">8</button>
+      <button class="np-btn" onclick="pinPress('9')">9</button>
+      <button class="np-btn del" onclick="pinDel()">⌫</button>
+      <button class="np-btn zero" onclick="pinPress('0')">0</button>
+    </div>
+    <div class="lock-error" id="lockError">Incorrect PIN. Try again.</div>
+  </div>
+</div>
+
+<!-- ── MAIN APP ── -->
 <header>
   <div class="mandala-line">❋ ❋ ❋</div>
   <h1>Vivah <span>Suchna</span></h1>
-  <p>Marriage Event Directory — Find all events by date</p>
+  <p>Marriage Event Directory</p>
   <div class="divider"></div>
 </header>
 
-<div class="search-section">
+<!-- Nav tabs -->
+<div class="nav-tabs">
+  <button class="nav-btn active" id="tab-date"    onclick="setTab('date')">📅 Search by Date</button>
+  <button class="nav-btn"        id="tab-future"  onclick="setTab('future')">🔜 Future Events</button>
+  <button class="nav-btn"        id="tab-passed"  onclick="setTab('passed')">✅ Passed Events</button>
+</div>
+
+<!-- Date search (shown only on date tab) -->
+<div class="search-section" id="searchSection">
   <div class="search-box">
     <label>Select a Date to View Marriages</label>
     <div class="date-row">
@@ -355,58 +588,145 @@
 <footer>Vivah Suchna &nbsp;•&nbsp; Marriage Event Finder</footer>
 
 <script>
-  let marriageData = [];
+  // ── PIN LOCK ──
+  const CORRECT_PIN = '66190';
+  let pinEntry = '';
 
-  // Load marriages.json from the same folder on page load
+  function pinPress(d) {
+    if (pinEntry.length >= 5) return;
+    pinEntry += d;
+    updateDots();
+    if (pinEntry.length === 5) setTimeout(checkPin, 120);
+  }
+
+  function pinDel() {
+    pinEntry = pinEntry.slice(0, -1);
+    updateDots();
+    document.getElementById('lockError').classList.remove('show');
+  }
+
+  function updateDots() {
+    for (let i = 0; i < 5; i++) {
+      const dot = document.getElementById('d' + i);
+      dot.classList.toggle('filled', i < pinEntry.length);
+      dot.classList.remove('error');
+    }
+  }
+
+  function checkPin() {
+    if (pinEntry === CORRECT_PIN) {
+      const lock = document.getElementById('lockScreen');
+      lock.classList.add('unlocking');
+      setTimeout(() => lock.remove(), 400);
+    } else {
+      for (let i = 0; i < 5; i++) {
+        const dot = document.getElementById('d' + i);
+        dot.classList.remove('filled');
+        dot.classList.add('error');
+      }
+      const card = document.querySelector('.lock-card');
+      card.classList.add('shake');
+      card.addEventListener('animationend', () => card.classList.remove('shake'), { once: true });
+      document.getElementById('lockError').classList.add('show');
+      pinEntry = '';
+      setTimeout(() => { for (let i = 0; i < 5; i++) document.getElementById('d' + i).classList.remove('error'); }, 600);
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lockScreen')) return;
+    if (e.key >= '0' && e.key <= '9') pinPress(e.key);
+    if (e.key === 'Backspace') pinDel();
+  });
+
+  // ── DATA ──
+  let allData = [];
+  let currentTab = 'date';
+
   fetch('marriages.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Could not load marriages.json');
-      return res.json();
-    })
-    .then(data => {
-      marriageData = data;
-    })
-    .catch(err => {
-      console.error(err);
+    .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    .then(data => { allData = data; })
+    .catch(() => {
       document.getElementById('resultsSection').innerHTML = `
         <div class="no-results">
           <div class="icon">⚠️</div>
           <h3>Data file not found</h3>
-          <p>Make sure <strong>marriages.json</strong> is in the same folder as this file.</p>
+          <p>Make sure <strong>marriages.json</strong> is in the same folder.</p>
         </div>`;
     });
 
-  document.getElementById('datePicker').addEventListener('keydown', e => {
-    if (e.key === 'Enter') searchDate();
+  // ── TABS ──
+  function setTab(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+
+    const searchSec = document.getElementById('searchSection');
+
+    if (tab === 'date') {
+      searchSec.style.display = '';
+      document.getElementById('resultsSection').innerHTML = '';
+    } else if (tab === 'future') {
+      searchSec.style.display = 'none';
+      const results = allData.filter(e => e.completed === false);
+      renderResults(results, '🔜 Future / Upcoming Events', 'No upcoming events found.');
+    } else if (tab === 'passed') {
+      searchSec.style.display = 'none';
+      const results = allData.filter(e => e.completed === true);
+      renderResults(results, '✅ Passed / Completed Events', 'No completed events found.');
+    }
+  }
+
+  // ── SEARCH BY DATE ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const dp = document.getElementById('datePicker');
+    if (dp) dp.addEventListener('keydown', e => { if (e.key === 'Enter') searchDate(); });
   });
 
   function searchDate() {
     const val = document.getElementById('datePicker').value;
-    if (!val) { showToast("⚠️ Please select a date first."); return; }
-
+    if (!val) { showToast('⚠️ Please select a date first.'); return; }
     const [y, m, d] = val.split('-');
     const formatted = `${d}/${m}/${y}`;
-    const results = marriageData.filter(e => e.date === formatted);
-    renderResults(results, formatted);
+    const results = allData.filter(e => e.date === formatted);
+    renderResults(results, `Marriages on ${formatted}`, 'No marriages scheduled for this date.');
   }
 
-  function renderResults(results, dateStr) {
+  // ── RENDER ──
+  function parseDate(str) {
+    // str = "DD/MM/YYYY"
+    const [d, m, y] = str.split('/');
+    return new Date(`${y}-${m}-${d}`);
+  }
+
+  function renderResults(results, title, emptyMsg) {
     const section = document.getElementById('resultsSection');
 
     if (results.length === 0) {
       section.innerHTML = `
         <div class="no-results">
           <div class="icon">🌸</div>
-          <h3>No events found</h3>
-          <p>No marriages are scheduled for <strong>${dateStr}</strong></p>
+          <h3>${emptyMsg}</h3>
         </div>`;
       return;
     }
 
-    const cards = results.map((r, i) => `
-      <div class="card" style="animation-delay:${(i * 0.07).toFixed(2)}s">
+    // Sort by date ascending
+    const sorted = [...results].sort((a, b) => parseDate(a.date) - parseDate(b.date));
+
+    const cards = sorted.map((r, i) => {
+      const organisers = Array.isArray(r.organiser) ? r.organiser.join(' & ') : r.organiser;
+      const eventType  = r['event-type'] || '';
+      const money      = r.money != null ? `₹${Number(r.money).toLocaleString('en-IN')}` : null;
+      const isComplete = r.completed === true;
+
+      return `
+      <div class="card" style="animation-delay:${(i * 0.065).toFixed(2)}s">
         <div class="card-number">${String(i + 1).padStart(2, '0')}</div>
-        <div class="card-organiser">${r.organiser}</div>
+
+        <div class="card-organiser">${organisers}</div>
+        ${r.phone ? `<div class="card-phone">📞 ${r.phone}</div>` : ''}
+
         <div class="card-detail">
           <span class="icon">🏘️</span>
           <span class="label">Village</span>
@@ -422,21 +742,27 @@
           <span class="label">Date</span>
           <span class="value">${r.date}</span>
         </div>
-        <div>
-          <span class="card-time-badge">⏰ ${r.time}</span>
-          ${r.kuwasi === true ? '<span class="kuwasi-badge">🪔 Kuwasi</span>' : ''}
+
+        <div class="card-badges">
+          <span class="badge badge-time">⏰ ${r.time}</span>
+          ${eventType  ? `<span class="badge badge-event">🎊 ${eventType}</span>` : ''}
+          ${money      ? `<span class="badge badge-money">💰 ${money}</span>` : ''}
+          ${r.kuwasi   ? `<span class="badge badge-kuwasi">🪔 Kuwasi</span>` : ''}
+          <span class="badge ${isComplete ? 'badge-completed' : 'badge-pending'}">
+            ${isComplete ? '✅ Completed' : '🔴 Not Completed Yet'}
+          </span>
         </div>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
 
     section.innerHTML = `
       <div class="results-header">
-        <h2>Marriages on ${dateStr} <span class="count-badge">${results.length} event${results.length > 1 ? 's' : ''}</span></h2>
+        <h2>${title} <span class="count-badge">${results.length} event${results.length > 1 ? 's' : ''}</span></h2>
       </div>
-      <div class="cards-grid">${cards}</div>
-    `;
+      <div class="cards-grid">${cards}</div>`;
   }
 
+  // ── TOAST ──
   function showToast(msg) {
     const old = document.getElementById('toast');
     if (old) old.remove();
@@ -444,7 +770,7 @@
     t.id = 'toast';
     t.style.cssText = `position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
       background:#1A0A00;color:#FDF6EC;padding:10px 22px;border-radius:30px;
-      font-size:0.88rem;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.2);`;
+      font-size:0.86rem;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.2);`;
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3000);
