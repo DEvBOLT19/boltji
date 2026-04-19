@@ -643,9 +643,24 @@
   let allData = [];
   let currentTab = 'date';
 
+  // Returns true if event date is strictly before today (already passed)
+  function isEventPassed(dateStr) {
+    const [d, m, y] = dateStr.split('/');
+    const eventDate = new Date(y, m - 1, d);   // local midnight of event day
+    const today     = new Date();
+    today.setHours(0, 0, 0, 0);                // local midnight today
+    return eventDate < today;                   // strictly before today = passed
+  }
+
   fetch('marriages.json')
     .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-    .then(data => { allData = data; })
+    .then(data => {
+      // Override completed field automatically based on real date
+      allData = data.map(e => ({
+        ...e,
+        completed: isEventPassed(e.date)
+      }));
+    })
     .catch(() => {
       document.getElementById('resultsSection').innerHTML = `
         <div class="no-results">
