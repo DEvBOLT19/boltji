@@ -250,5 +250,17 @@
     "money": 100,
     "event-type": "mundan sanskar",
     "completed": false
+  },
+   {
+    "date": "20/04/2026",
+    "organiser": ["dileep bagdiram rathod", "shyam rathod"],
+    "village": "kalora",
+    "place": "kalora",
+    "time": "suhani sham se lekar dhalri raat tak",
+    "kuwasi": false,
+    "phone": "9669867750",
+    "money": 100,
+    "event-type": "vivah",
+    "completed": false
   }
 ]
